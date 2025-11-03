@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const alertButton = document.getElementById('alert-button');
     const modal = document.getElementById('modal');
     const closeModal = document.getElementById('close-modal');
+    const movement = document.getElementById('movement');
 
     let progress = 0;
     const progressInterval = 100; // 每 100 毫秒更新一次
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addDataFeedLine = (text, isCritical = false) => {
         const line = document.createElement('p');
         line.textContent = `> ${new Date().toLocaleTimeString()} ${text}`;
-        
+
         if (isCritical) {
             line.style.color = '#ff0000'; // 關鍵訊息用紅色
             line.style.fontWeight = 'bold';
@@ -72,14 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 彈出模態框事件
     alertButton.addEventListener('click', () => {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     });
 
     // 關閉模態框事件
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
-    
+
+    movement.addEventListener("mouseover", () => {
+        movement.textContent = "不給你按";
+        movement.style.opacity = 0.7;
+    })
+
     // 點擊背景也關閉模態框
     window.addEventListener('click', (event) => {
         if (event.target === modal) {

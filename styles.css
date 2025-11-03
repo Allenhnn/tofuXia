@@ -170,12 +170,14 @@ body::before {
 /* --- 模態框樣式 --- */
 .modal {
     display: none; /* 預設隱藏 */
+    align-items: center;
+    justify-content: center;
     position: fixed;
     z-index: 100; /* 確保在最上層 */
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: auto;
     background-color: rgba(0,0,0,0.9); /* 更深的半透明背景 */
     backdrop-filter: blur(8px); /* 更模糊的背景 */
@@ -193,7 +195,7 @@ body::before {
     padding: 30px;
     border: 5px solid #ffff00; /* 強烈的黃色邊框 */
     width: 85%; 
-    max-width: 800px;
+    /* max-width: 800px; */
     text-align: center;
     color: white;
     box-shadow: 0 0 30px #ffff00; /* 黃色光暈 */
@@ -219,7 +221,15 @@ body::before {
     margin-bottom: 20px;
 }
 
-
+#movement{
+    display: inline-block;
+    background-color: #5b5b59 !important; /* 黃色按鈕 */
+    box-shadow: 0 0 10px #d6d6d4 !important;
+    color: white !important;
+    cursor: default;
+    margin: 0 2rem;
+}
+#movement,
 #close-modal {
     margin-top: 20px;
     background-color: #ffff00; /* 黃色按鈕 */
