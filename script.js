@@ -11,14 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 隨機數據消息
     const messages = [
-        "INIT: Protocol 3-Delta activated...",
-        "STATUS: System integrity check [FAIL]",
-        "LOG: Unauthorized memory access detected. [CODE: 0xDEADBEEF]",
-        "SCAN: Scanning file system... (C:\\Windows\\System32\\config\\)",
-        "ALERT: Elevated privilege request blocked.",
-        "DATA: Transmitting encrypted payload to host. (192.168.1.105)",
-        "ERROR: Critical thread terminated unexpectedly. [PID: 404]",
-        "WARNING: Resource utilization at 98%. System lag detected."
+        // "INIT: Protocol 3-Delta activated...",
+        // "STATUS: System integrity check [FAIL]",
+        // "LOG: Unauthorized memory access detected. [CODE: 0xDEADBEEF]",
+        // "SCAN: Scanning file system... (C:\\Windows\\System32\\config\\)",
+        // "ALERT: Elevated privilege request blocked.",
+        // "DATA: Transmitting encrypted payload to host. (192.168.1.105)",
+        // "ERROR: Critical thread terminated unexpectedly. [PID: 404]",
+        // "WARNING: Resource utilization at 98%. System lag detected.",
+        "LOG : 張勝宏由於太胖所以網頁爆掉了",
+        "LOG : 於成平外套都不還我真的屎",
+        "LOG : Emily is beautiful",
+        "LOG : 黃屎真的屎，屎屎屎屎屎屎屎",
+        "WARNING : 我好餓我餓喔喔喔喔喔喔喔喔",
+        "WARNING :裝屎你也屎屎屎屎屎屎屎屎",
+        "ERROR : 我忘記今天是陳正成生日了成正成生日快樂",
     ];
 
     // 模擬進度條跳動
