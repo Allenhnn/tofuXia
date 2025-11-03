@@ -1,0 +1,238 @@
+body {
+    font-family: 'Consolas', 'Courier New', monospace; /* 使用科技感字體 */
+    background-color: #000000; /* 純黑背景，更深沉 */
+    color: #ff0000; /* 主要文字使用鮮豔的危險紅 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* 確保沒有滾動條 */
+    position: relative; /* 用於背景噪點 */
+}
+
+/* 模擬老舊螢幕/訊號不良的噪點效果 */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    opacity: 0.2; /* 輕微的噪點 */
+    pointer-events: none; /* 不影響滑鼠事件 */
+    z-index: -1; /* 保持在內容之下 */
+}
+
+
+.alert-container {
+    width: 90%;
+    max-width: 750px; /* 稍微寬一點 */
+    padding: 35px; /* 更多內邊距 */
+    border: 6px solid #ff0000; /* 更粗的紅色邊框 */
+    box-shadow: 0 0 50px #ff0000, inset 0 0 25px #ff0000; /* 更強烈的紅色光暈 */
+    background-color: #1a0000; /* 略帶紅色的深色內部背景 */
+    animation: pulse 1s infinite alternate, glitchEffect 0.5s infinite alternate; /* 增加一個微小的故障效果 */
+    text-align: center;
+    position: relative; /* 為了故障效果 */
+    overflow: hidden; /* 防止內容溢出 */
+}
+
+/* 邊框閃爍動畫 */
+@keyframes pulse {
+    from {
+        border-color: #ff0000;
+        box-shadow: 0 0 50px #ff0000, inset 0 0 25px #ff0000;
+    }
+    to {
+        border-color: #ff4d4d;
+        box-shadow: 0 0 70px #ff4d4d, inset 0 0 35px #ff4d4d;
+    }
+}
+
+/* 模擬輕微故障/抖動效果 */
+@keyframes glitchEffect {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(1px, -1px); }
+    50% { transform: translate(-1px, 1px); }
+    75% { transform: translate(1px, 1px); }
+    100% { transform: translate(-1px, -1px); }
+}
+
+
+.header h1 {
+    color: #ff0000; /* 標題使用鮮紅色 */
+    font-size: 2.2em; /* 更大的標題 */
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #ff0000; /* 標題增加紅色陰影 */
+}
+
+.status-icon {
+    font-size: 2.5em; /* 更大的圖標 */
+    display: block;
+    margin-bottom: 15px;
+    color: #ffff00; /* 警告圖標使用醒目黃色 */
+    animation: blinkIcon 1s step-end infinite; /* 圖標閃爍 */
+}
+
+@keyframes blinkIcon {
+    from, to { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+
+.message {
+    font-size: 1.25em; /* 更大的訊息字體 */
+    margin-bottom: 30px;
+    color: #ffff00; /* 警告性黃色，與紅色形成強烈對比 */
+    text-shadow: 0 0 5px #ffff00; /* 訊息增加黃色陰影 */
+}
+
+/* --- 進度條樣式 --- */
+.progress-bar-container {
+    margin: 25px 0;
+    background-color: #333;
+    border: 2px solid #ff0000; /* 進度條邊框也是紅色的 */
+    padding: 4px;
+    position: relative;
+    box-shadow: 0 0 15px #ff0000; /* 進度條光暈 */
+}
+
+.progress-bar {
+    height: 30px; /* 更高的進度條 */
+    width: 0%;
+    background-color: #ff0000; /* 進度條主色調，鮮紅 */
+    transition: width 0.1s linear; /* 讓進度條看起來跳動 */
+}
+
+#progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff; /* 文字白色 */
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px #000; /* 文字加陰影避免被背景色吞噬 */
+}
+
+/* --- 數據流樣式 --- */
+.data-feed {
+    height: 180px; /* 更高的數據流區域 */
+    overflow-y: scroll;
+    text-align: left;
+    background-color: #0a0a0a; /* 更深的背景 */
+    border: 2px solid #00ff41; /* 數據流邊框用螢光綠，形成另一種警示對比 */
+    padding: 12px;
+    font-size: 1em;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: #00ff41; /* 螢光綠文字 */
+    text-shadow: 0 0 5px rgba(0,255,65,0.5); /* 螢光綠陰影 */
+}
+/* 讓滾動條看起來更暗 */
+.data-feed::-webkit-scrollbar {
+    width: 10px; /* 更寬的滾動條 */
+}
+.data-feed::-webkit-scrollbar-thumb {
+    background: #444; /* 深灰色滾動條 */
+}
+.data-feed::-webkit-scrollbar-track {
+    background: #111; /* 更深的滾動條軌道 */
+}
+
+/* --- 按鈕樣式 --- */
+#alert-button {
+    background-color: #ff0000; /* 紅色按鈕 */
+    color: white;
+    border: 2px solid #ffff00; /* 黃色邊框強調 */
+    padding: 12px 25px; /* 更大的按鈕 */
+    font-size: 1.3em;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff0000, 0 0 10px #ffff00 inset; /* 紅色外光暈，黃色內光暈 */
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: bold;
+    text-transform: uppercase; /* 大寫強調 */
+}
+
+#alert-button:hover {
+    background-color: #cc0000;
+    transform: scale(1.02); /* 懸停時輕微放大 */
+}
+
+/* --- 模態框樣式 --- */
+.modal {
+    display: none; /* 預設隱藏 */
+    position: fixed;
+    z-index: 100; /* 確保在最上層 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* 更深的半透明背景 */
+    backdrop-filter: blur(8px); /* 更模糊的背景 */
+    animation: fadeInModal 0.3s forwards; /* 彈出動畫 */
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #1a0000;
+    margin: 10% auto; /* 居中，稍微高一點 */
+    padding: 30px;
+    border: 5px solid #ffff00; /* 強烈的黃色邊框 */
+    width: 85%; 
+    max-width: 450px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 30px #ffff00; /* 黃色光暈 */
+    animation: modalPulse 1s infinite alternate; /* 彈窗邊框閃爍 */
+}
+
+@keyframes modalPulse {
+    from { border-color: #ffff00; box-shadow: 0 0 30px #ffff00; }
+    to { border-color: #ffcc00; box-shadow: 0 0 45px #ffcc00; }
+}
+
+
+.modal-content h2 {
+    color: #ffff00; /* 彈窗標題用黃色 */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #ffff00;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    color: #ffcccc; /* 輕微偏紅的白色 */
+    margin-bottom: 20px;
+}
+
+
+#close-modal {
+    margin-top: 20px;
+    background-color: #ffff00; /* 黃色按鈕 */
+    color: #000000; /* 黑色文字 */
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 0 0 10px #ffff00;
+    transition: background-color 0.3s;
+}
+
+#close-modal:hover {
+    background-color: #ffcc00;
+}

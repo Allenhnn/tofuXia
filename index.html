@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系統警示 | 數據異常</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="alert-container">
+        <div class="header">
+            <span class="status-icon">⚠️</span>
+            <h1>【嚴重警示】偵測到數據異常及系統不穩定</h1>
+        </div>
+
+        <p class="message">
+            系統完整性檢查失敗。請勿關閉瀏覽器。
+        </p>
+
+        <div class="progress-bar-container">
+            <div id="scan-progress" class="progress-bar"></div>
+            <p id="progress-text">正在執行緊急協議 (0%)</p>
+        </div>
+
+        <div id="data-feed" class="data-feed">
+            </div>
+        
+        <button id="alert-button">立即採取行動</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>🚨 系統通知</h2>
+            <p>豆腐俠時隔多時重出江湖，陳政誠先生生日快樂</p>
+            <button id="close-modal">吃我豆腐</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
